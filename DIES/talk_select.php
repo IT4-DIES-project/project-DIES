@@ -25,7 +25,7 @@
 		<!--アカウント表示-->
         <div id="side_account">
             <div id="account_up"><!--ユーザー画像-->
-                <a href="setting_user.php"><img  src="images/sora.png" width="100%" height="100%"></a>
+                <a href="user.php"><img  src="images/sora.png" width="100%" height="100%"></a>
             </div>
 			
             <div id="account_down">
@@ -42,10 +42,10 @@
         <div id="side_nav">
             <div style="height: 15px; width: 300px; background : #2F2F2F;"></div>
             <div id="nav_list">
+                <a href="dies.php" style="border-top: 1px solid #fff;">Home</a>
                 <a href="friends_select.php">Friends</a>
                 <a id="now_page" href="talk_select.php" style="text-decoration: underline;text-decoration-color: #F7E0A1">
 					<img src="images/circle.png" style="text-align" width="40" height="40"/>Talk</a>
-                <a href="information.php">Information</a>
                 <a href="setting.php">Setting</a>
             </div>
         </div>

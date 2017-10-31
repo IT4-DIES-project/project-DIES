@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -68,23 +66,42 @@ session_start();
         <div id="side_nav">
             <div style="height: 15px; width: 300px; background : #2F2F2F;"></div>
             <div id="nav_list">
-                <a href="friends_select.php" style="border-top: 1px solid #FFFFFF;">Friends</a>
+                <a id="now_page" href="dies.php" style="border-top: 1px solid #8cd460; text-decoration: underline; text-decoration-color: #F7E0A1">
+					<img src="images/circle.png" style="text-align" width="40" height="40"/>Home</a>
+                <a href="friends_select.php">Friends</a>
                 <a href="talk_select.php">Talk</a>
-                <a href="information.php">Information</a>
                 <a href="setting.php">Setting</a>
             </div>
         </div>
     </div><!--side終了-->
 	
-	<!--ページ背景-->
-    <div id="dies_logo">
-        <img src="images/DIES_mono.png">
-    </div>
-	
-	<!--フッター-->
-	<div id="footer">
-		
-	</div>
+	<!--main-->
+    <div id="main_info">
+        <img src="images/circle.png" style="padding-top: 5px; float:left;" width="60px" height="60px">
+        <h1 style="border-bottom: 3px solid #8cd460;">INFORMATION</h1>
+
+        <?php while( $box_info = $stmt_info->fetch()) :?>
+            <?php
+            $day= strtotime($box_info["post_date"]);				//作成日をタイムスタンプに変換
+            $oneweek = date("Y-m-d",strtotime("+1 week", $day));//作成日の1週間後を取得しoneweekに代入
+            ?>
+
+            <div class="area">
+                <!--タイトル-->
+                <h2><span id="liner"><?php echo  $box_info["post_title"]; ?></span></h2>
+
+                <!--日付部分-->
+                <a class="day">作成日<?php echo $box_info["post_date"]; ?></a>
+
+
+                <!--中身部分-->
+                <div class="short"><p><?php echo $box_info['post_content'];?></p></div>
+                <a class="short_read" href="info_contents.php?ID=<?php echo $box_info['id']; ?>">続きを読む>></a>
+            </div><!--area終了-->
+
+        <?php endwhile; ?>
+
+    </div><!--main終了-->
 
 </div><!--wrap終了-->
 

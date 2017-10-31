@@ -5,74 +5,77 @@
 
 1.index
 2.dies
-3.information,information_contents
-4.setting
-5.user
-6.animation
+3.setting
+4.user
+5.animation
 
 ----------------------------------------------*/
 
-
 *{
-    margin          : 0;
-    padding         : 0;
-    font-family     : 'Crimson Text', serif;
-    list-style      : none;
+    margin      : 0;
+    padding     : 0;
+    font-family : 'Crimson Text', serif;
+    list-style  : none;
 }
 
-#wrapper{
-    width		    : 100%;
-    height		    : 100%;
-    margin          : 0 auto;
+#wrap{
+    width		: 100vw;
+    height		: 100vh;
+    margin      : 0 auto;
+	position    : fixed;
+	background  : #eeeeee;
+	background-size: cover;
+	z-index     : 0;
 }
 
-/*-----------------------------------------
-     indexページ
-------------------------------------*?
+
+/*---------------------------------------------
+             index.php
+---------------------------------------------*/
 
 /*背景*/
 #index_img{
     width           : 100vw;
     height          : 100vh;
     background      : #F7E0A1 url(../images/index.png) no-repeat;
-	background-size : cover;
     position        : fixed;
+    background-size : cover;
     z-index         : 0;
 }
 
 /*ぼかしのための疑似要素*/
 #index_img::before {
-    content         : '';
-    top             : -5px;
-	right           : -5px;
-    bottom          : -5px;
-    left            : -5px;
-    background      : inherit;
-	filter          : blur(2px);
-    position        : absolute;/* 輪郭がぼやけてしまうのでブラー範囲を広げる */
-    z-index         : -1;
+    content   : '';
+    top       : -5px;
+    bottom    : -5px;
+    left      : -5px;
+    right     : -5px;
+    background: inherit;
+    position  : absolute;/* 輪郭がぼやけてしまうのでブラー範囲を広げる */
+    filter    : blur(2px);
+    z-index   : -1;
 }
 
 /*logoマークのはこ*/
 #index_logo{
-	padding-top     : calc(100vh / 2 - 190px);
     text-align      : center;
+    padding-top     : calc(100vh / 2 - 220px);
 }
 
 /*---------------------------
     ログインフォーム
 ----------------------------*/
 #index_contents, #new_contents{
-    width           : 310px;
-    padding         : 35px 20px 10px 40px;
-    top             : 23%;
-    left            : 37%;
-    background      : #fff;
-	border          : 4px double #ccc;
-    text-align      : center;
-    position        : absolute;
-    box-shadow      : 2px 2px 5px 1px #999;
-    z-index         : 2;
+    width       : 310px;
+    padding     : 35px 20px 10px 40px;
+    top         : 23%;
+    left        : 37%;
+    background  : #fff;
+    position    : absolute;
+    border      : 4px double #ccc;
+    text-align  : center;
+    box-shadow  : 2px 2px 5px 1px #999;
+    z-index     : 2;
 }
 
 /*フォームを表示したときの背景（暗くなる）*/
@@ -83,19 +86,19 @@
     left            : 0;
     background      : #000;
     background-size : cover;
-	position        : fixed;
     opacity         : 0.60;
+    position        : fixed;
     z-index         : 1;
 }
 
 /*入力欄*/
 .input{
-	width           : 260px;
-    height		    : 30px;
-    margin          : 0 20px 15px 10px;
-	background-color:#FFFFFF;	/*記入してない欄*/
-    color		    : #3E4242;
-    font            : 1em sans-serif;
+    margin       : 0 20px 15px 10px;
+    width        : 260px;
+    height		 : 30px;
+    color		 : #3E4242;
+    font         : 1em sans-serif;
+    background-color    :#FFFFFF;	/*記入してない欄*/
     -moz-box-shadow		: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
     -webkit-box-shadow	: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
     box-shadow			: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
@@ -109,208 +112,198 @@ hr{
 
 /*ボタン*/
 #arrow_btn{
-	width           : 70px;
-    height          : 70px;
-    border-radius   : 100px;
-    line-height     : 70px;
+    border-radius  : 100px;
+    width          : 70px;
+    height         : 70px;
+    line-height    : 70px;
 }
 
 .btn{
-	width           : 190px;
-    height          : 20px;
-    margin          : 10px 20px 10px 10px;
-	display         : inline-block;
-    background      : #000000;
-	border          : solid 2px rgba(255, 255, 255, 0.47);
-    color           : rgba(255, 255, 255, 0.47);
-	text-align      : center;
-    text-decoration : none;
-    vertical-align  : middle;
-    box-shadow      : 0px 0px 0px 5px #000000;
-	line-height     : 20px;
-    cursor          : pointer;
-    transition      : .4s;
+    margin         : 10px 20px 10px 10px;
+    width          : 190px;
+    height         : 20px;
+    line-height    : 20px;
+    background     : #000000;
+    color          : rgba(255, 255, 255, 0.47);
+    display        : inline-block;
+    text-decoration: none;
+    text-align     : center;
+    vertical-align : middle;
+    box-shadow     : 0px 0px 0px 5px #000000;
+    border         : solid 2px rgba(255, 255, 255, 0.47);
+    cursor         : pointer;
+    transition     : .4s;
 }
 
 .btn:hover{
-    background      : #8cd460;
-	border-style    : dashed;
-    box-shadow      : 0px 0px 0px 5px #8cd460;
+    background     : #8cd460;
+    box-shadow     : 0px 0px 0px 5px #8cd460;
+    border-style   : dashed;
 }
 
 #form button{
-	height          : 23px;
-    font-size       : 1em;
-    line-height     : 23px;
+    font-size      : 1em;
+    height         : 23px;
+    line-height    : 23px;
 }
+
+
+
 
 /*---------------------------------------------
              dies.php
 ---------------------------------------------*/
 
-#wrap{
-    width           : 100vw;
-    height          : 100vh;
-    background      : #EEEEEE;
-	background-size : cover;
-    position        : fixed;
-    z-index         : 0;
-}
 /*ロード画面*/
 #loader-bg {
-    width           : 100%;
-    height          : 100%;
-    top             : 0px;
-    left            : 0px;
-    display         : none;
-	background      : #000;
-    position        : fixed;
-    z-index         : 1;
+    width          : 100%;
+    height         : 100%;
+    top            : 0px;
+    left           : 0px;
+    display        : none;
+    position       : fixed;
+    background     : #000;
+    z-index        : 1;
 }
 #loader {
-    width           : 200px;
-    height          : 200px;
-	margin-top      : -100px;
-    margin-left     : -100px;
-    top             : 50%;
-    left            : 50%;
-    display         : none;
-	color           : #fff;
-	text-align      : center;
-    position        : fixed;
-    z-index         : 2;
+    width          : 200px;
+    height         : 200px;
+    top            : 50%;
+    left           : 50%;
+    margin-top     : -100px;
+    margin-left    : -100px;
+    display        : none;
+    position       : fixed;
+    text-align     : center;
+    color          : #fff;
+    z-index        : 2;
 }
 
 .text{
-    margin-top      : 0.8em;
+    margin-top     : 0.8em;
 }
 
 .text span{
-    display         : inline-block;
-    animation       : wave-text 1s ease-in-out infinite;
+    display        : inline-block;
+    animation      : wave-text 1s ease-in-out infinite;
 }
 
-/*---------------------------------------------
-             information.php
-			information_contents.php
----------------------------------------------*/
+/*お知らせ*/
 #main_info {
-	float           : right;
-    width           : 75%;
-    padding         : 10px;
+    width: 75%;
+    float: right;
+    padding: 10px;
     background-color: #eeeeee;
 }
 
 #main_info h1{
-	padding-bottom  : 5px;
-    font-size       : 3em;
+    font-size: 3em;
+    padding-bottom: 5px;
 }
 
 .area{
-	width           : 90%;
-    margin-top	    : 15px;
-	padding	        : 3%;
-	background-color: #F7E0A1;
-    border-radius   : 15px;
-    position        : relative;
-    word-break      : break-all;/*行末で強制的に改行*/
+    position:relative;
+    padding	:3%;
+    width		:90%;
+    margin-top	:15px;
+    background-color: #F7E0A1;
+    border-radius: 15px;
+    word-break: break-all;/*行末で強制的に改行*/
 }
 
 #content_area{
-    min-height      : 400px;
+    min-height: 400px;
 }
-
 /*areaの最後の下空白をなくす*/
 .area:last-child{
-    margin-bottom	: 0px;
+    margin-bottom	:0px;	
 }
-
 .area:only-of-type{
-    margin-bottom	: 0px;	/*１つしか記事がない場合、areaの下空白をなくす*/
+    margin-bottom	:0px;	/*１つしか記事がない場合、areaの下空白をなくす*/
 }
 
 .area  p{
-    margin	        : 30px 0;
+    margin	:30px 0;
 }
 
-
-/*information_contents.php*/
 #content{
-    width           : 95%;
-    min-height      : 390px;
-    margin	        : 20px 0 0;
-    padding         : 3%;
+    width: 95%;
+    min-height: 390px;
+    margin	:20px 0 0 0;
+    padding: 3%;
     background-color: #ffffff;
-    border-radius   : 15px;
+    border-radius: 15px;
 }
 
 .area h2{
-    clear           : both;
+    clear:both;
 }
 
 .area a.day{
-    float		    : right;
-	bottom		    : 25px;
-	display		    : block;
-    position	    : relative;
+    float		:right;
+    position	:relative;
+    display		:block;
+    bottom		:25px;
 }
 
 #liner{
-    background      : linear-gradient(transparent 50%, #8cd460 50%);
+    background: linear-gradient(transparent 50%, #8cd460 50%);
 }
 
 /*記事（短）*/
 .short *{
-    display	        : none;
+    display	:none;
 }
-
 .short h2{
-    display	        : none;
+    display	:none;
 }
-
 .short p:first-of-type{
-	width           : 100%;
-    display         : block;
-    overflow        : hidden;
-    text-overflow   : ellipsis;
-    white-space     : nowrap;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-
 /*続きを読む*/
 .short_read{
-    float           : right;
-	width	        : 50%;
-    max-width       : 150px;
-    margin          : -30px 0 30px 0;
-    padding	        : 1%;
-	display	        : block;
-    background-color: #8cd460;
-    border-radius	: 10px;
-    text-align	    : center;
+    float:right;
+    display	:block;
+    margin: -30px 0 30px 0;
+    padding	:1%;
+    width	:50%;
+    max-width:150px;
+    background-color	: #8cd460;
+    border-radius			:10px;
+    -webkit-border-radius	:10px;
+    -moz-border-radius		:10px;
+    text-align	:center;
 }
-
 .short_read:hover{
     background-color: #b8ee65;
-    letter-spacing　: 2px;/*文字の間隔を指定する*/
+    -moz-box-shadow		:inset 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow	:inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+    box-shadow			:inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    letter-spacing:2px;/*文字の間隔を指定する*/
 }
 
 /*---------------------------------------------
              setting.php
 ---------------------------------------------*/
+
 #main{
-    float           : right;
-	width           : 75%;
-    padding         : 10px;
+    width: 75%;
+    float: right;
+    padding: 10px;
     background-color: #eeeeee;
 }
 
 #main h1{
-	padding-bottom  : 5px;
-    font-size       : 3em;
+    font-size: 3em;
+    padding-bottom: 5px;
 }
 
 .set_list {
-    padding-left    : 20px;
+    padding-left: 20px;
 }
 
 .set_p{
@@ -326,8 +319,8 @@ hr{
 
 
 /* デザイン */
-.set_list
-,.set_list div{
+.set_list,
+.set_list div{
     margin          : 0px;
 }
 
@@ -388,6 +381,47 @@ dl.form dd {
 /*---------------------------------------------
              user.php
 ---------------------------------------------*/
+#user_wrap{
+    width		: 100vw;
+    height		: 100vh;
+    margin      : 0 auto;
+	position    : fixed;
+	background  : #eeeeee;
+	background-size: cover;
+	z-index     : 0;
+	overflow-y  : auto;
+}
+
+#search{
+    float: right;
+    margin: 10px 300px 0 0;
+}
+
+#search_form {
+    position: relative;
+}
+
+#search_text  {
+    width: 182px;
+    height: 16px;
+    background: #eee;
+    border: none;
+    padding: 4px;
+    font-size: 1em;
+}
+
+#search_button {
+    position: absolute;
+    top:0;
+    _top: 1px;
+    left: 190px;
+}
+
+*:first-child + html #search_button   {
+    top: 30px;
+}
+
+/*友達検索*/
 .arrow_box {
     position: absolute;
     background: #eeeeee;
@@ -438,19 +472,6 @@ dl.form dd {
     font-size: 1em;
 }
 
-#search_icon{
-    vertical-align: middle;
-    text-align: center;
-    border-radius: 50%;
-}
-
-
-/*-------------*/
-#search{
-    float: right;
-    margin: 10px 300px 0 0;
-}
-
 #account_top{
     width          : 100%;
     height         : 60%;
@@ -461,7 +482,7 @@ dl.form dd {
 #account_top a{
     width          : 100%;
     height         : 100%;
-    background-color: #eeeeee;
+    background-color: #F7E0A1;
     z-index: 1;
 }
 
@@ -470,6 +491,11 @@ dl.form dd {
     height         : 100%;
     box-sizing: border-box;
     border: 5px solid rgba(0,0,0,0);
+}
+
+.u-inline-brock{
+	max-width          : 100%;
+    display            : inline-block;
 }
 
 #account_icon{
@@ -571,14 +597,15 @@ dl.form dd {
 }
 
 #bar_nav_list{
-    width      : 1050px;
+	float: right;
+    width      : 970px;
     height     : 50px;
-    text-align: center;
+    text-align : center;
     margin-left: 350px;
 }
 
 #bar_nav_list a {
-    width           : 250px;
+    width           : 230px;
     height          : 50px;
     font-size       : 2em;
     text-align      : center;
@@ -588,6 +615,7 @@ dl.form dd {
     position        : relative;
     text-decoration : none;
     border-left: 5px solid #FFFFFF;
+	z-index: 0;
 }
 
 #bar_nav_list a:hover {
@@ -604,6 +632,7 @@ dl.form dd {
     box-sizing        : border-box;
     -webkit-transition: all .3s;
     transition        : all .3s;
+
 }
 
 #bar_nav_list a::before,
@@ -652,11 +681,6 @@ dl.form dd {
     -webkit-transition	:-webkit-box-shadow 1s, letter-spacing 1s, background-color 1s;
     -moz-transition		:-moz-box-shadow 1s,letter-spacing 1s, background-color 1s;
     transition			:box-shadow 1s, letter-spacing 1s, background-color 1s;
-}
-.short_read:hover{
-    -moz-box-shadow		:inset 10px rgba(0,0,0,0.5);
-    -webkit-box-shadow	:inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
-    box-shadow			:inset 1px 4px 9px -6px rgba(0,0,0,0.5);
 }
 
 #account_main::after {
@@ -708,23 +732,22 @@ dl.form dd {
 .text span:nth-of-type(12){ animation-delay: 1.1s; }
 .text span:nth-of-type(13){ animation-delay: 1.2s; }
 
-
 /* トリミング　テスト*/
 .imageBox
 {
-    position         : relative;
-    height           : 400px;
-    width            : 400px;
-    border           :1px solid #aaa;
-    background       : #fff;
-    overflow         : hidden;
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border:1px solid #aaa;
+    background: #fff;
+    overflow: hidden;
     background-repeat: no-repeat;
-    cursor           :move;
+    cursor:move;
 }
 
 .imageBox .thumbBox
 {
-    position         : absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     width: 200px;

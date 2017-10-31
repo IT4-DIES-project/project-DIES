@@ -51,9 +51,9 @@
         <div id="side_nav">
             <div style="height: 15px; width: 300px; background : #2F2F2F;"></div>
             <div id="nav_list">
-                <a href="friends_select.php" style="border-top: 1px solid #fff;">Friends</a>
+                <a href="dies.php" style="border-top: 1px solid #fff;">Home</a>
+                <a href="friends_select.php">Friends</a>
                 <a href="talk_select.php">Talk</a>
-                <a href="information.php">Information</a>
                 <a id="now_page" href="setting.php" style="text-decoration: underline; text-decoration-color: #F7E0A1">
 					<img src="images/circle.png" style="text-align" width="40" height="40"/>Setting</a>
             </div>

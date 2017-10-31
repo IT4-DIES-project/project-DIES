@@ -26,7 +26,7 @@ if(mysqli_num_rows($result) > 0){
     }
 
 }else{
-    $string = "ユーザーが見つかりませんでした";
+    $string = "ユーザーが見つかりませんでした。";
 }
 
 echo $string;
