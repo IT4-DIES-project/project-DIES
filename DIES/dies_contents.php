@@ -29,19 +29,19 @@ $today = date("Y-m-d");
 <body>
 <div id="wrap">
 
-    <div id="side" style="left: 0;">
+    <div id="side">
         <div style="width: 300px; height: 1.5em;"></div>
         <!--アカウント表示-->
         <div id="side_account">
             <div id="account_up"><!--ユーザー画像-->
-                <a href="user_setting.php"><img  src="images/sora.png" width="100%" height="100%"></a>
+                <a href="user.php"><img  src="images/sora.png" width="100%" height="100%"></a>
             </div>
 
             <div id="account_down">
-                <a class="u-inline-brock" href="user_setting.php"><img src="images/user.png"></a>
+                <a class="u-inline-brock" href="user.php"><img src="images/icon.jpg"></a>
                 <div class="info">
                     <div><p style="font:large/150% bold"><?php echo $_SESSION["user_name"]?></p></div>
-                    <div class="u-inline-brock"><p><?php echo $_SESSION["user_id"]?></p></div>
+                    <div class="u-inline-brock"><p><?php echo $_SESSION["user_id"] ?></p></div>
                     <br style="clear: both">
                 </div>
             </div>
@@ -51,7 +51,8 @@ $today = date("Y-m-d");
         <div id="side_nav">
             <div style="height: 15px; width: 300px; background : #2F2F2F;"></div>
             <div id="nav_list">
-                <a href="dies.php" style="border-top: 1px solid #FFFFFF;">Home</a>
+                <a id="now_page" href="dies.php" style="border-top: 1px solid #8cd460; text-decoration: underline; text-decoration-color: #F7E0A1">
+                    <img src="images/circle.png" style="text-align" width="40" height="40"/>Home</a>
                 <a href="friends_select.php">Friends</a>
                 <a href="talk_select.php">Talk</a>
                 <a href="setting.php">Setting</a>

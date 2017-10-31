@@ -106,7 +106,7 @@ $today = date("Y-m-d");
 
                 <!--中身部分-->
                 <div class="short"><p><?php echo $box_info['post_content'];?></p></div>
-                <a class="short_read" href="info_contents.php?ID=<?php echo $box_info['id']; ?>">続きを読む>></a>
+                <a class="short_read" href="dies_contents.php?ID=<?php echo $box_info['id']; ?>">続きを読む>></a>
             </div><!--area終了-->
 
         <?php endwhile; ?>
