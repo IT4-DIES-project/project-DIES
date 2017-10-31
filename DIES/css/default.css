@@ -1,0 +1,750 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*--------------------------------------------
+
+1.index
+2.dies
+3.information,information_contents
+4.setting
+5.user
+6.animation
+
+----------------------------------------------*/
+
+
+*{
+    margin          : 0;
+    padding         : 0;
+    font-family     : 'Crimson Text', serif;
+    list-style      : none;
+}
+
+#wrapper{
+    width		    : 100%;
+    height		    : 100%;
+    margin          : 0 auto;
+}
+
+/*-----------------------------------------
+     indexページ
+------------------------------------*?
+
+/*背景*/
+#index_img{
+    width           : 100vw;
+    height          : 100vh;
+    background      : #F7E0A1 url(../images/index.png) no-repeat;
+	background-size : cover;
+    position        : fixed;
+    z-index         : 0;
+}
+
+/*ぼかしのための疑似要素*/
+#index_img::before {
+    content         : '';
+    top             : -5px;
+	right           : -5px;
+    bottom          : -5px;
+    left            : -5px;
+    background      : inherit;
+	filter          : blur(2px);
+    position        : absolute;/* 輪郭がぼやけてしまうのでブラー範囲を広げる */
+    z-index         : -1;
+}
+
+/*logoマークのはこ*/
+#index_logo{
+	padding-top     : calc(100vh / 2 - 190px);
+    text-align      : center;
+}
+
+/*---------------------------
+    ログインフォーム
+----------------------------*/
+#index_contents, #new_contents{
+    width           : 310px;
+    padding         : 35px 20px 10px 40px;
+    top             : 23%;
+    left            : 37%;
+    background      : #fff;
+	border          : 4px double #ccc;
+    text-align      : center;
+    position        : absolute;
+    box-shadow      : 2px 2px 5px 1px #999;
+    z-index         : 2;
+}
+
+/*フォームを表示したときの背景（暗くなる）*/
+#form_back{
+    width           : 100vw;
+    height          : 100vh;
+    top             : 0;
+    left            : 0;
+    background      : #000;
+    background-size : cover;
+	position        : fixed;
+    opacity         : 0.60;
+    z-index         : 1;
+}
+
+/*入力欄*/
+.input{
+	width           : 260px;
+    height		    : 30px;
+    margin          : 0 20px 15px 10px;
+	background-color:#FFFFFF;	/*記入してない欄*/
+    color		    : #3E4242;
+    font            : 1em sans-serif;
+    -moz-box-shadow		: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    -webkit-box-shadow	: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    box-shadow			: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+hr{
+    margin-top      : 10px;
+    background-color: #fff;
+    border-top      : 1px dashed #8c8b8b;
+}
+
+/*ボタン*/
+#arrow_btn{
+	width           : 70px;
+    height          : 70px;
+    border-radius   : 100px;
+    line-height     : 70px;
+}
+
+.btn{
+	width           : 190px;
+    height          : 20px;
+    margin          : 10px 20px 10px 10px;
+	display         : inline-block;
+    background      : #000000;
+	border          : solid 2px rgba(255, 255, 255, 0.47);
+    color           : rgba(255, 255, 255, 0.47);
+	text-align      : center;
+    text-decoration : none;
+    vertical-align  : middle;
+    box-shadow      : 0px 0px 0px 5px #000000;
+	line-height     : 20px;
+    cursor          : pointer;
+    transition      : .4s;
+}
+
+.btn:hover{
+    background      : #8cd460;
+	border-style    : dashed;
+    box-shadow      : 0px 0px 0px 5px #8cd460;
+}
+
+#form button{
+	height          : 23px;
+    font-size       : 1em;
+    line-height     : 23px;
+}
+
+/*---------------------------------------------
+             dies.php
+---------------------------------------------*/
+
+#wrap{
+    width           : 100vw;
+    height          : 100vh;
+    background      : #EEEEEE;
+	background-size : cover;
+    position        : fixed;
+    z-index         : 0;
+}
+/*ロード画面*/
+#loader-bg {
+    width           : 100%;
+    height          : 100%;
+    top             : 0px;
+    left            : 0px;
+    display         : none;
+	background      : #000;
+    position        : fixed;
+    z-index         : 1;
+}
+#loader {
+    width           : 200px;
+    height          : 200px;
+	margin-top      : -100px;
+    margin-left     : -100px;
+    top             : 50%;
+    left            : 50%;
+    display         : none;
+	color           : #fff;
+	text-align      : center;
+    position        : fixed;
+    z-index         : 2;
+}
+
+.text{
+    margin-top      : 0.8em;
+}
+
+.text span{
+    display         : inline-block;
+    animation       : wave-text 1s ease-in-out infinite;
+}
+
+/*---------------------------------------------
+             information.php
+			information_contents.php
+---------------------------------------------*/
+#main_info {
+	float           : right;
+    width           : 75%;
+    padding         : 10px;
+    background-color: #eeeeee;
+}
+
+#main_info h1{
+	padding-bottom  : 5px;
+    font-size       : 3em;
+}
+
+.area{
+	width           : 90%;
+    margin-top	    : 15px;
+	padding	        : 3%;
+	background-color: #F7E0A1;
+    border-radius   : 15px;
+    position        : relative;
+    word-break      : break-all;/*行末で強制的に改行*/
+}
+
+#content_area{
+    min-height      : 400px;
+}
+
+/*areaの最後の下空白をなくす*/
+.area:last-child{
+    margin-bottom	: 0px;
+}
+
+.area:only-of-type{
+    margin-bottom	: 0px;	/*１つしか記事がない場合、areaの下空白をなくす*/
+}
+
+.area  p{
+    margin	        : 30px 0;
+}
+
+
+/*information_contents.php*/
+#content{
+    width           : 95%;
+    min-height      : 390px;
+    margin	        : 20px 0 0;
+    padding         : 3%;
+    background-color: #ffffff;
+    border-radius   : 15px;
+}
+
+.area h2{
+    clear           : both;
+}
+
+.area a.day{
+    float		    : right;
+	bottom		    : 25px;
+	display		    : block;
+    position	    : relative;
+}
+
+#liner{
+    background      : linear-gradient(transparent 50%, #8cd460 50%);
+}
+
+/*記事（短）*/
+.short *{
+    display	        : none;
+}
+
+.short h2{
+    display	        : none;
+}
+
+.short p:first-of-type{
+	width           : 100%;
+    display         : block;
+    overflow        : hidden;
+    text-overflow   : ellipsis;
+    white-space     : nowrap;
+}
+
+/*続きを読む*/
+.short_read{
+    float           : right;
+	width	        : 50%;
+    max-width       : 150px;
+    margin          : -30px 0 30px 0;
+    padding	        : 1%;
+	display	        : block;
+    background-color: #8cd460;
+    border-radius	: 10px;
+    text-align	    : center;
+}
+
+.short_read:hover{
+    background-color: #b8ee65;
+    letter-spacing　: 2px;/*文字の間隔を指定する*/
+}
+
+/*---------------------------------------------
+             setting.php
+---------------------------------------------*/
+#main{
+    float           : right;
+	width           : 75%;
+    padding         : 10px;
+    background-color: #eeeeee;
+}
+
+#main h1{
+	padding-bottom  : 5px;
+    font-size       : 3em;
+}
+
+.set_list {
+    padding-left    : 20px;
+}
+
+.set_p{
+	color           : #000000;
+	text-decoration : none;
+    font-size       : 1.5em;
+	cursor          : pointer;
+}
+
+.set_list form{
+	display         : none;
+}
+
+
+/* デザイン */
+.set_list
+,.set_list div{
+    margin          : 0px;
+}
+
+.set_list div{
+	width           : 800px;
+	margin          : 5px 0px 5px 0px !important;
+    list-style-type : none !important;
+    list-style-image: none !important;
+}
+
+.list7 div{
+	padding         : 5px 0px 5px 40px;
+	display         : block;
+    background      : #F7E0A1;
+	color           : #444;
+    border-radius   : 15px;
+    position        : relative;
+}
+
+.list7 div:after {/*丸*/
+    content         : '';
+	width           : 20px;
+    height          : 20px;
+    top             : 14px;
+    left            : 15px;
+    display         : block;
+	background      : #8cd460;
+    border-radius   : 50%;
+    position        : absolute;
+}
+
+.set_list form input{
+	width           : 160px;
+    height		    : 30px;
+	margin          : 0 20px 15px 10px;
+	background-color: #FFFFFF;	/*記入してない欄*/
+    color		    : #3E4242;
+    font            : 1em sans-serif;
+    -moz-box-shadow		: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    -webkit-box-shadow	: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+    box-shadow			: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+dl{
+	margin          : 10px;
+}
+
+dl.form dt {
+	clear           : right;
+	float           : left;
+	width           : 16%;
+	text-align      : right;
+}
+dl.form dd {
+	margin-left     : 17%;
+}
+
+/*---------------------------------------------
+             user.php
+---------------------------------------------*/
+.arrow_box {
+    position: absolute;
+    background: #eeeeee;
+    border: 4px solid #eeeeee;
+    z-index: 4;
+    width: 250px;
+    display: none;
+    border-radius: 6px;
+    padding: 5px;
+    margin-top: 12px;
+}
+.arrow_box:after, .arrow_box:before {
+    bottom: 100%;
+    left: 10%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(38, 213, 50, 0);
+    border-bottom-color: #eeeeee;
+    border-width: 10px;
+    margin-left: -10px;
+}
+.arrow_box:before {
+    border-color: rgba(38, 213, 50, 0);
+    border-bottom-color: #eeeeee;
+    border-width: 16px;
+    margin-left: -16px;
+}
+
+.arrow_box li{
+    display: block;
+    padding: 5px 5px 5px 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1em;
+    line-height: 32px;
+}
+
+.arrow_box span{
+    color: #66757f;
+    font-size: 1em;
+}
+
+#search_icon{
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+/*-------------*/
+#search{
+    float: right;
+    margin: 10px 300px 0 0;
+}
+
+#account_top{
+    width          : 100%;
+    height         : 60%;
+    min-height     : 60%;
+    background     : #2F2F2F;
+}
+
+#account_top a{
+    width          : 100%;
+    height         : 100%;
+    background-color: #eeeeee;
+    z-index: 1;
+}
+
+#account_top img{
+    width          : 100%;
+    height         : 100%;
+    box-sizing: border-box;
+    border: 5px solid rgba(0,0,0,0);
+}
+
+#account_icon{
+    height             : 200px;
+    float: left;
+    position: absolute;
+}
+#account_icon a{
+    background-color   : #F7E0A1;
+    margin             : -50% 0 0 100px;
+    padding: 5px;
+    vertical-align: bottom;
+    border-radius: 50%;
+    z-index            : 2;
+
+}
+
+#account_icon img{
+    border-radius      : 50%;
+    height             : 250px;
+    width              : 250px;
+    box-sizing         : border-box;
+    border: 5px solid rgba(0,0,0,0);
+    vertical-align: middle;
+}
+
+#account_l_side{
+    width: 280px;
+    height: 500px;
+    background-color: #eeeeee;
+    margin-left: 100px;
+    padding-top: 30px;
+    float: left;
+}
+
+#account_l_side p{
+    padding: 5px;
+}
+
+#account_main {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    -webkit-background: linear-gradient(-155deg, rgba(0, 0, 0, 0) 1.5em, #f6f6f6 0%);
+    background: linear-gradient(-155deg, rgba(0, 0, 0, 0) 1.5em, #F7E0A1 0%);
+    margin: 20px;
+    float: left;
+    border-radius: 6px;
+}
+
+#account_main::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    width: 1.65507em;
+    height: 3.5493em;
+    background: -webkit-linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .2));
+    background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .2));
+    border-bottom-left-radius: 6px;
+    box-shadow: -.2em .2em .3em -.1em rgba(0, 0, 0, .15);
+    -webkit-transform: translateY(-1.89424em) rotate(-40deg);
+    transform: translateY(-1.89424em) rotate(-40deg);
+    -webkit-transform-origin: bottom right;
+    transform-origin: bottom right;
+}
+
+#footer{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    position: fixed !important;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+}
+
+#footer a{
+    padding: 5px 15px 5px 15px;
+    border-radius: 100px;
+    background: #F7E0A1;
+    border: 5px solid #F7E0A1;
+    font-size: 1.25em;
+    box-sizing: border-box;
+}
+#footer a:hover{
+    border: 5px solid #8cd460;
+}
+
+/*ナビゲーション部分*/
+#bar_nav{
+    width      : 100%;
+    height     : 50px;
+    background : #2F2F2F;
+    margin-top: 3em;
+}
+
+#bar_nav_list{
+    width      : 1050px;
+    height     : 50px;
+    text-align: center;
+    margin-left: 350px;
+}
+
+#bar_nav_list a {
+    width           : 250px;
+    height          : 50px;
+    font-size       : 2em;
+    text-align      : center;
+    background-color: #333;
+    color           : #fff;
+    display         : inline-block;
+    position        : relative;
+    text-decoration : none;
+    border-left: 5px solid #FFFFFF;
+}
+
+#bar_nav_list a:hover {
+    background-color: #fff;
+    border-color    : #8cd460;
+    color           : #8cd460;
+}
+
+#bar_nav_list a,
+#bar_nav_list a::before,
+#bar_nav_list a::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing   : border-box;
+    box-sizing        : border-box;
+    -webkit-transition: all .3s;
+    transition        : all .3s;
+}
+
+#bar_nav_list a::before,
+#bar_nav_list a::after {
+    content         : '';
+    top             : 0;
+    width           : 50%;
+    height          : 100%;
+    background-color: #333;
+    display         : block;
+    position        : absolute;
+    z-index         : -1;
+}
+#bar_nav_list a::before {
+    right           : 0;
+}
+#bar_nav_list a::after {
+    left            : 0;
+}
+#bar_nav_list a:hover::before,
+#bar_nav_list a:hover::after {
+    width           : 0;
+    background-color: #8cd460;
+}
+
+/*-----------------------------------------------------
+	animation
+-----------------------------------------------------*/
+#index_logo{
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+    -moz-animation   : fadeIn 2s ease 0s 1 normal;
+    -ms-animation    : fadeIn 2s ease 0s 1 normal;
+    -o-animation     : fadeIn 2s ease 0s 1 normal;
+    animation        : fadeIn 2s ease 0s 1 normal;
+}
+
+#loader img{
+    -webkit-animation: spin 1.5s linear infinite;
+    -moz-animation   : spin 1.5s linear infinite;
+    -ms-animation    : spin 1.5s linear infinite;
+    -o-animation     : spin 1.5s linear infinite;
+    animation        : spin 1.5s linear infinite;
+}
+
+.short_read{
+    -webkit-transition	:-webkit-box-shadow 1s, letter-spacing 1s, background-color 1s;
+    -moz-transition		:-moz-box-shadow 1s,letter-spacing 1s, background-color 1s;
+    transition			:box-shadow 1s, letter-spacing 1s, background-color 1s;
+}
+.short_read:hover{
+    -moz-box-shadow		:inset 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow	:inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+    box-shadow			:inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+
+#account_main::after {
+    -webkit-transform   : translateY(-1.89424em) rotate(-40deg);
+    transform           : translateY(-1.89424em) rotate(-40deg);
+    -webkit-transform-origin: bottom right;
+    transform-origin        : bottom right;
+}
+
+@-webkit-keyframes spin {
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+    0% {-moz-transform: rotate(0deg);}
+    100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes spin {
+    0% {-ms-transform: rotate(0deg);}
+    100% {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes spin {
+    0% {-o-transform: rotate(0deg);}
+    100% {-o-transform: rotate(360deg);}
+}
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+@keyframes wave-text{
+    00%{transform: translateY(0em);}
+    60%{transform: translateY(-0.8em);}
+    100%{transform: translateY(0em);}
+}
+
+/* アニメーション開始タイミングをずらす */
+.text span:nth-of-type(1){ animation-delay: 0.0s; }
+.text span:nth-of-type(2){ animation-delay: 0.1s; }
+.text span:nth-of-type(3){ animation-delay: 0.2s; }
+.text span:nth-of-type(4){ animation-delay: 0.3s; }
+.text span:nth-of-type(5){ animation-delay: 0.4s; }
+.text span:nth-of-type(6){ animation-delay: 0.5s; }
+.text span:nth-of-type(7){ animation-delay: 0.6s; }
+.text span:nth-of-type(8){ animation-delay: 0.7s; }
+.text span:nth-of-type(9){ animation-delay: 0.8s; }
+.text span:nth-of-type(10){ animation-delay: 0.9s; }
+.text span:nth-of-type(11){ animation-delay: 1.0s; }
+.text span:nth-of-type(12){ animation-delay: 1.1s; }
+.text span:nth-of-type(13){ animation-delay: 1.2s; }
+
+
+/* トリミング　テスト*/
+.imageBox
+{
+    position         : relative;
+    height           : 400px;
+    width            : 400px;
+    border           :1px solid #aaa;
+    background       : #fff;
+    overflow         : hidden;
+    background-repeat: no-repeat;
+    cursor           :move;
+}
+
+.imageBox .thumbBox
+{
+    position         : absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    box-sizing: border-box;
+    border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    background: none repeat scroll 0% 0% transparent;
+}
+
+.imageBox .spinner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    line-height: 400px;
+    background: rgba(0,0,0,0.7);
+}
