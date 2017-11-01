@@ -31,26 +31,26 @@ if (!empty($_POST["user_id"]) && !empty($_POST["pass"])) {
                 }
                 $_SESSION["user_id"] = $row['user_id'];
                 $_SESSION["user_name"] = $row['user_name'];
-                header("Location: dies.php");  // メイン画面へ遷移
+                header("Location: ../dies.php");  // メイン画面へ遷移
                 exit();  // 処理終了
             } else {
                 // 認証失敗
                 echo "#1";
                 $e = "ユーザーIDあるいはパスワードに誤りがあります。#1";
-                header("Location: index.php?e=$e");
+                header("Location: ../index.php?e=$e");
             }
         } else {
             // 該当データなし
             echo "#2";
             $e = "ユーザーIDあるいはパスワードに誤りがあります。#2";
-            header("Location: index.php?e=$e");
+            header("Location: ../index.php?e=$e");
 
         }
 } else {
     //該当データなし
     echo "#3";
     $e = "ユーザーIDとパスワードを入力してください。";
-    header("Location: index.php?e=$e");
+    header("Location: ../index.php?e=$e");
 
 }
 

@@ -15,11 +15,12 @@ $today = date("Y-m-d");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=2"/><!--ビューポートの設定（レスポンシブに必要）-->
     <script src="js/jquery.js"></script>
+    <script src="js/load.js"></script>
     <script src="js/html5shiv.js"></script><!--IE８以前のバージョンの場合でもレイアウトが崩れないようにする-->
     <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/animate.css"><!--cssでアニメーションをする-->
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
-
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
     <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
 
@@ -79,7 +80,7 @@ $today = date("Y-m-d");
             <div><p id="content"><?php echo $box_info['post_content'];?></p></div>
 
         </div><!--area終了-->
-    </div>
+    </div><!--main終了-->
 
 </div><!--wrap終了-->
 

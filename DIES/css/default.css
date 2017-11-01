@@ -392,9 +392,21 @@ dl.form dd {
 	overflow-y  : auto;
 }
 
+#user_header {
+    width: 100%;;
+    height: 3.0em;
+    background-color: #2F2F2F;
+}
+
+#user_header img{
+    width          : 100%;
+    height         : 100%;
+    box-sizing: border-box;
+    border: 5px solid rgba(0,0,0,0);
+}
 #search{
     float: right;
-    margin: 10px 300px 0 0;
+    margin: 10px 200px 0 0;
 }
 
 #search_form {
@@ -472,6 +484,13 @@ dl.form dd {
     font-size: 1em;
 }
 
+#search_icon{
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
 #account_top{
     width          : 100%;
     height         : 60%;
@@ -482,7 +501,7 @@ dl.form dd {
 #account_top a{
     width          : 100%;
     height         : 100%;
-    background-color: #F7E0A1;
+    background-color: #eeeeee;
     z-index: 1;
 }
 
@@ -509,7 +528,7 @@ dl.form dd {
     padding: 5px;
     vertical-align: bottom;
     border-radius: 50%;
-    z-index            : 2;
+    z-index            : 5;
 
 }
 
@@ -593,7 +612,6 @@ dl.form dd {
     width      : 100%;
     height     : 50px;
     background : #2F2F2F;
-    margin-top: 3em;
 }
 
 #bar_nav_list{
@@ -733,31 +751,31 @@ dl.form dd {
 .text span:nth-of-type(13){ animation-delay: 1.2s; }
 
 /* トリミング　テスト*/
+.container
+{
+    position: absolute;
+    width: 100%;
+    height: 60%;
+}
+
 .imageBox
 {
     position: relative;
-    height: 400px;
-    width: 400px;
-    border:1px solid #aaa;
-    background: #fff;
+    height: 100%;
+    width: 100%;
+    background: #eeeeee no-repeat;
+    background-size: cover;
     overflow: hidden;
-    background-repeat: no-repeat;
-    cursor:move;
 }
 
 .imageBox .thumbBox
 {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 200px;
-    margin-top: -100px;
-    margin-left: -100px;
-    box-sizing: border-box;
-    border: 1px solid rgb(102, 102, 102);
-    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
     background: none repeat scroll 0% 0% transparent;
+    background-size: 100% auto;
+    /*pointer-events: none;*/
 }
 
 .imageBox .spinner
@@ -770,4 +788,10 @@ dl.form dd {
     text-align: center;
     line-height: 400px;
     background: rgba(0,0,0,0.7);
+}
+
+.action
+{
+    width: 400px;
+    height: 30px;
 }

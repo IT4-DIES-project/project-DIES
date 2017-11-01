@@ -9,59 +9,81 @@ $sql_info = "SELECT * FROM user where id=? " ;
 //$stmt_info->execute();
 ?>
 <!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=2"/><!--ビューポートの設定（レスポンシブに必要）-->
-<script src="js/jquery.js"></script>
-<script src="js/html5shiv.js"></script><!--IE８以前のバージョンの場合でもレイアウトが崩れないようにする-->
-<script src="js/friends_search.js"></script>
-<link rel="stylesheet" href="css/default.css">
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
-<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
-<link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
-	
-<script type="text/javascript">
-	$(function(){
-		$("#footer").css("display", "none");
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=2"/><!--ビューポートの設定（レスポンシブに必要）-->
+    <script src="js/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+    <script src="js/html5shiv.js"></script><!--IE８以前のバージョンの場合でもレイアウトが崩れないようにする-->
+    <script src="js/friends_search.js"></script>
+    <script src="js/image_setting.js"></script>
+    <link rel="stylesheet" href="css/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
 
-		$(".account_img img").click(function(){
-			$("#footer").toggle();
-		});
-		$(".account_img img").hover(
-			function () {
-				$(this).css("border","5px solid #8cd460");
-			},
+    <script src="js/image_edit.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var options =
+                {
+                    imageBox: '.imageBox',
+                    thumbBox: '.thumbBox',
+                    spinner: '.spinner',
+                    imgSrc: 'avatar.png'
+                }
+            var cropper;
+            document.querySelector('#file').addEventListener('change', function(){
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    options.imgSrc = e.target.result;
+                    cropper = new cropbox(options);
+                }
+                reader.readAsDataURL(this.files[0]);
+                this.files = [];
+            })
+            document.querySelector('#btnCrop').addEventListener('click', function(){
+                var img = cropper.getAvatar()
+                document.querySelector('.cropped').src = img;
+            })
+            document.querySelector('#btnZoomIn').addEventListener('click', function(){
+                cropper.zoomIn();
+            })
+            document.querySelector('#btnZoomOut').addEventListener('click', function(){
+                cropper.zoomOut();
+            })
+        };
+    </script>
 
-			function () {
-				$(this).css("border","");
-			}
-		)
-
-	});
-</script>
-
-<title>DIES</title>
+    <title>DIES</title>
 </head>
-
 <body>
 <div id="user_wrap">
-    <!--ヘッダー画像-->
-    <div id="account_top">
-        <div style="width: 100%; height: 3.0em; background-color: #2F2F2F;">
-			<div style="width: 40px; float: left; margin-left: 45%"><img src="images/circle.png"></div>
-            <div id="search">
-                <form name="form" id="search_form" method="post" action="php/friends_search.php" autocomplete="off" >
-                    <input name="search_text" id="search_text" type="text" placeholder="検索" />
-                    <input type="image" src="images/btn.gif" alt="検索" name="search_button" id="search_button" />
-                </form>
-                <ul class="arrow_box">
-                    <li id="search_results">
-                    </li>
-                </ul>
-            </div>
+
+
+    <!--header-->
+    <div id="user_header">
+        <div style="width: 40px; float: left; margin-left: 45%"><img src="images/circle.png"></div>
+        <div id="search">
+            <form name="form" id="search_form" method="post" action="php/friends_search.php" autocomplete="off" >
+                <input name="search_text" id="search_text" type="text" placeholder="検索" />
+                <input type="image" src="images/btn.gif" alt="検索" name="search_button" id="search_button" />
+            </form>
+            <ul class="arrow_box">
+                <li id="search_results">
+                </li>
+            </ul>
         </div>
-        <a class="u-inline-brock account_img"><img src="images/sora.png"></a>
+    </div>
+    <!--ここまで-->
+    <div class="container">
+        <div class="imageBox">
+            <div class="thumbBox"></div>
+            <div class="spinner" style="display: none">Loading...</div>
+        </div>
+    </div>
+    <div id="account_top">
+        <a class="u-inline-brock account_img"><img class="cropped" src="images/sora.png" ></a>
     </div>
 
 	<!--ナビゲーション-->
@@ -90,9 +112,17 @@ $sql_info = "SELECT * FROM user where id=? " ;
 
     </div>
 
-    <div id="footer">
+    <div class="container" id="footer">
+        <div class="action">
+            <input type="file" id="file" style="float:left; width: 250px">
+            <input type="button" id="btnCrop" value="Crop" style="float: right">
+            <input type="button" id="btnZoomIn" value="+" style="float: right">
+            <input type="button" id="btnZoomOut" value="-" style="float: right">
+        </div>
+        <!--
         <a>変更を保存</a>
         <a style="margin-left: 20px">キャンセル</a>
+        -->
     </div>
 
 </div><!--wrap終了-->
