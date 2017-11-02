@@ -1,46 +1,52 @@
 <?php
 session_start();
 
-//?\????SQL
+if($_SESSION["log"] < 0){
+    header("Location: index.php");
+    exit;
+}
+
 $pdo = new PDO ( 'mysql:host=localhost;dbname=dies;charset=utf8', 'root', 'dies2017' );
-$sql_info = "SELECT * FROM info where id=? " ;	//?S???擾?Alimit ?J?n??u,????
+$sql_info = "SELECT * FROM info " ;
 
 $stmt_info = $pdo->prepare($sql_info);
-$stmt_info->execute(array($_GET["ID"]));
+$stmt_info->execute();
 
 $today = date("Y-m-d");
 ?>
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=2"/><!--ビューポートの設定（レスポンシブに必要）-->
-<script src="js/jquery.js"></script>
-<script src="js/html5shiv.js"></script><!--IE８以前のバージョンの場合でもレイアウトが崩れないようにする-->
-<link rel="stylesheet" href="css/default.css">
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=2"/><!--ビューポートの設定（レスポンシブに必要）-->
+    <script src="js/jquery.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/html5shiv.js"></script><!--IE８以前のバージョンの場合でもレイアウトが崩れないようにする-->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/animate.css"><!--cssでアニメーションをする-->
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
 
-<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
-<link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
+    <script>
 
-<script>
+        $(function(){
+            $("#header").load("header.html");
+        });
 
-	$(function(){
-	  $("#header").load("header.html");
-	});
-	
-</script>
+    </script>
 
-<title>DIES</title>
+    <title>DIES</title>
 </head>
 
 <body id="diespage">
 <div id="wrap">
-	
-	<!--ヘッダ--->
+
+    <!--ヘッダ--->
     <div id="header"></div>
-	
-	<!--side-->
+
+    <!--side-->
     <div id="side" style="left: 0"><?php include(dirname(__FILE__) . '/side.php'); ?></div>
 
     <!--main-->
@@ -65,6 +71,7 @@ $today = date("Y-m-d");
     </div><!--main終了-->
 
 </div><!--wrap終了-->
+
 
 </body>
 </html>

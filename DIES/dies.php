@@ -7,7 +7,7 @@ if($_SESSION["log"] < 0){
 }
 
 $pdo = new PDO ( 'mysql:host=localhost;dbname=dies;charset=utf8', 'root', 'dies2017' );
-$sql_info = "SELECT * FROM info " ;	//�S���擾�Alimit �J�n�ʒu,����
+$sql_info = "SELECT * FROM info " ;
 
 $stmt_info = $pdo->prepare($sql_info);
 $stmt_info->execute();
@@ -93,7 +93,7 @@ $today = date("Y-m-d");
 
                 <!--中身部分-->
                 <div class="short"><p><?php echo $box_info['post_content'];?></p></div>
-                <a class="short_read" href="info_contents.php?ID=<?php echo $box_info['id']; ?>">続きを読む>></a>
+                <a class="short_read" href="dies_contents.php?ID=<?php echo $box_info['id']; ?>">続きを読む>></a>
             </div><!--area終了-->
 
         <?php endwhile; ?>

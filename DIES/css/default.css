@@ -5,9 +5,10 @@
 
 1.index
 2.dies
-3.setting
-4.user
-5.animation
+3.friend
+4.setting
+5.user
+6.animation
 
 ----------------------------------------------*/
 
@@ -301,6 +302,25 @@ hr{
     -webkit-box-shadow	  : inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
     box-shadow			  : inset 1px 4px 9px -6px rgba(0,0,0,0.5);
 }
+
+/*---------------------------------------------
+             friends_select.php
+---------------------------------------------*/
+
+#f_list{
+    height: 54px;
+    border-bottom: 1px solid #2F2F2F;
+}
+
+#f_list a{
+    font-size: 1.5em;
+}
+
+#f_list span{
+    color: #66757f;
+    font-size: 0.7em;
+}
+
 
 /*---------------------------------------------
              setting.php
