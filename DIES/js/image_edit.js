@@ -11,12 +11,11 @@ var cropbox = function(options){
                 image : new Image(),
                 getAvatar: function ()
                 {
-                    var array = ["100%","auto"];
                     var width = this.thumbBox.clientWidth,
                         height = this.thumbBox.clientHeight,
                         canvas = document.createElement("canvas"),
                         dim = el.style.backgroundPosition.split(' '),
-                        size = array;
+                        size = this.thumbBox.style.backgroundSize.split(' '),
                         dx = parseInt(dim[0]) - el.clientWidth/2 + width/2,     //画像の描画位置 x軸
                         dy = parseInt(dim[1]) - el.clientHeight/2 + height/2,   //             y軸
                         dw = parseInt(size[0]),                                 //画像の描画サイズ 横幅
