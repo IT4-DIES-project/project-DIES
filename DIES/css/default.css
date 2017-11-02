@@ -430,6 +430,7 @@ dl.form dd {
     border-radius   : 6px;
 	position        : absolute;
 	z-index         : 4;
+    box-shadow: 0 0 8px gray;
 }
 .arrow_box:after, 
 .arrow_box:before {

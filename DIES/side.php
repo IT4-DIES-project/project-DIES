@@ -2,7 +2,7 @@
 session_start();
 
 $pdo = new PDO ( 'mysql:host=localhost;dbname=dies;charset=utf8', 'root', 'dies2017' );
-$sql_info = "SELECT * FROM info " ;	//�S���擾�Alimit �J�n�ʒu,����
+$sql_info = "SELECT * FROM info " ;
 
 $stmt_info = $pdo->prepare($sql_info);
 $stmt_info->execute();
@@ -16,7 +16,7 @@ $today = date("Y-m-d");
 	</div>
 
 	<div id="account_down">
-		<a class="u-inline-brock" href="user.php"><img src="images/user.png"></a>
+		<a class="u-inline-brock" href="user.php"><img src="images/icon.jpg"></a>
 		<div class="info">
 			<div><p style="font:large/150% bold"><?php echo $_SESSION["user_name"]?></p></div>
 			<div class="u-inline-brock"><p><?php echo $_SESSION["user_id"] ?></p></div>
