@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -28,12 +27,12 @@
             <div id="account_up"><!--ユーザー画像-->
                 <a href="user.php"><img  src="images/sora.png" width="100%" height="100%"></a>
             </div>
-
+			
             <div id="account_down">
-                <a class="u-inline-brock" href="user.php"><img src="images/icon.jpg"></a>
+                <a class="u-inline-brock" href="user.php"><img src="images/user.png"></a>
                 <div class="info">
-                    <div><p style="font:large/150% bold"><?php echo $_SESSION["user_name"]?></p></div>
-                    <div class="u-inline-brock"><p><?php echo $_SESSION["user_id"] ?></p></div>
+                    <div><p style="font:large/150% bold">よっしー</p></div>
+                    <div class="u-inline-brock"><p>yoshi1025</p></div>
                     <br style="clear: both">
                 </div>
             </div>
