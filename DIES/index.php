@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ja">
 <head>
@@ -19,7 +18,7 @@
 
 <body>
 
-<div id="wrapper">
+<div id="wrap">
 	<!--index-->
 	<div id="index_img">	
 		<div id="index_logo">
@@ -30,21 +29,23 @@
 		
 		<!--contents最初は非表示-->
 		<div id="form_back" style="display: none"></div>
+		
 		<div id="index_contents" style="display: none">
-		<img src="images/DIES.png" width="100" height="50" style="top: 0; left: 0; position: absolute">
-		<p style="margin-bottom: 10px; font-family: 'Crimson Text', serif; font-size: 2em;">Sign In</p>
+		<p style="margin-bottom: 10px; font-size: 2em;">Sign In</p>
 			<form id="form" action="php/login.php" method="post">
 			
 				<input class="input" type="text" placeholder="メールアドレス" name="user_id">
 				<input class="input" type="password" placeholder="パスワード" name="pass">
 			
-				<p style="clear: both; text-align: center"><button class="btn" type="submit">Login</button><hr>
-				<a class="btn" href="sign_up.php">New</a>
+				<p style="clear: both; text-align: center">
+					<button class="btn" type="submit">Login</button><hr>
+					<a class="btn" href="sign_up.php">New</a>
 				</p>
 			</form>
 		</div><!--contents終了-->
+	
 	</div><!--index終了-->
-</div><!--wrapper終了-->
+</div><!--wrap終了-->
 
 </body>
 </html>

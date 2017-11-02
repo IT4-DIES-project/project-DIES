@@ -13,13 +13,14 @@
 	position           : fixed;
 }
 
-/*アカウント部分*/
+/*--アカウント部分--*/
 #side_account{
     width              : 300px;
     height             : 200px;
     background         : white;
 }
 
+/*画像*/
 #account_up{
     height             : 120px;
 }
@@ -35,9 +36,11 @@
 	height             : 100%;
 }
 
+/*アカウントIDや名前*/
 #account_down{
     height             : 80px;
 }
+
 #account_down a{
 	margin             : -30px 0 0 8px;
     padding            : 1px;
@@ -50,8 +53,8 @@
 }
 
 #account_down img{
+	width              : 72px;
 	height             : 72px;
-    width              : 72px;
 	border             : 2px solid #fff;
     border-radius      : 50%;
 	color              : #fff;
@@ -71,7 +74,7 @@
 }
 
 
-/*ナビゲーション部分*/
+/*--ナビゲーション部分--*/
 #side_nav{
     width              : 300px;
     height             : 433px;
@@ -87,19 +90,14 @@
     width              : 300px;
     height             : 80px;
 	display            : inline-block;
+	background-color   : #333;
 	border-bottom      : 1px solid #FFFFFF;
-    background-color   : #333;
 	color              : #fff;
     text-align         : center;
 	text-decoration    : none;
     font-size          : 3em;
     position           : relative;
     z-index            : 0;
-}
-#nav_list a:hover {
-    background-color   : #fff;
-    border-color       : #8cd460;
-    color              : #8cd460;
 }
 
 #nav_list a,
@@ -123,12 +121,22 @@
     position           : absolute;
     z-index            : -1;
 }
+
 #nav_list a::before {
     right              : 0;
 }
+
 #nav_list a::after {
     left               : 0;
 }
+
+/*hover時のアニメーション*/
+#nav_list a:hover {
+    background-color   : #fff;
+    border-color       : #8cd460;
+    color              : #8cd460;
+}
+
 #nav_list a:hover::before,
 #nav_list a:hover::after {
     width              : 0;
@@ -138,17 +146,24 @@
 /*---------------------------------------------
           現在ページのナビゲーション
 ---------------------------------------------*/
-#side_nav #nav_list a#now_page {
+#diespage #nav_list a#dies,
+#friendspage #nav_list a#friends,
+#talkpage #nav_list a#talk,
+#settingpage #nav_list a#setting{
     background-color   : #fff;
     border-color       : #8cd460;
     color              : #8cd460;
+	text-decoration    : underline; 
+	text-decoration-color: #F7E0A1;
 }
 
-#side_nav #nav_list a#now_page img{
-	vertical-align     : sub;
-}
-
-#side_nav #nav_list a#now_page::before,
-#side_nav #nav_list a#now_page::after{
+#diespage #nav_list a#dies::before,
+#diespage #nav_list a#dies::after,
+#friendspage #nav_list a#friends::before,
+#friendspage #nav_list a#friends::after,
+#talkpage #nav_list a#talk::before,
+#talkpage #nav_list a#talk::after,
+#settingpage #nav_list a#setting::before,
+#settingpage #nav_list a#setting::after{
     background-color   : #fff;
 }
