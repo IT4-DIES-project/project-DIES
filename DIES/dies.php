@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+if($_SESSION["log"] < 0){
+    header("Location: index.php");
+    exit;
+}
+
+$pdo = new PDO ( 'mysql:host=localhost;dbname=dies;charset=utf8', 'root', 'dies2017' );
+$sql_info = "SELECT * FROM info " ;	//�S���擾�Alimit �J�n�ʒu,����
+
+$stmt_info = $pdo->prepare($sql_info);
+$stmt_info->execute();
+
+$today = date("Y-m-d");
+?>
 <!doctype html>
 <html lang="ja">
 <head>

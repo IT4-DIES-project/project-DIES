@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+$pdo = new PDO ( 'mysql:host=localhost;dbname=dies;charset=utf8', 'root', 'dies2017' );
+$sql_info = "SELECT * FROM user where id=? " ;	//�S���擾�Alimit �J�n�ʒu,����
+
+//$stmt_info = $pdo->prepare($sql_info);
+//$stmt_info->execute();
+?>
+
 <!doctype html>
 <html lang="ja">
 <head>
