@@ -33,6 +33,30 @@ $stmt_friend_list->execute();
 	  $("#header").load("header.html");
 	});
 
+
+	$(document).ready( function () {
+        $(".sub").css("display","none");
+        $(function () {
+            $(".f_list_contents").click( function () {
+                $(".sub",this).toggle();
+            });
+        });
+    });
+
+    $(function() {
+        $('.f_list_contents')
+            .css({
+                left : '40px',
+                opacity: 0
+            })
+            .each(function(i){
+                $(this).delay(300 * i)
+                    .animate({
+                        left : '0',
+                        opacity: 1
+                    }, 700);
+            });
+    });
 </script>
 
 <title>DIES</title>
@@ -48,23 +72,26 @@ $stmt_friend_list->execute();
     <div id="side" style="left: 0"><?php include(dirname(__FILE__) . '/side.php'); ?></div>
 
     <!--main-->
-    <div id="main">
+    <div id="f_main">
         <img src="images/circle.png" style="padding-top: 5px; float:left;" width="60px" height="60px">
-        <h1 style="border-bottom: 3px solid #8cd460;">FRIENDS LIST</h1>
+        <h1>FRIENDS LIST</h1>
 
-        <ul>
+        <ul id="f_list">
         <?php while( $list = $stmt_friend_list->fetch()) :?>
-
             <?php
                 $sql_friend = "SELECT * FROM user where user_id='" . $list["friend_id"] . "'";
                 $stmt_friend = $pdo->prepare($sql_friend);
                 $stmt_friend->execute();
             ?>
-
             <?php while( $box_friend = $stmt_friend->fetch()) :?>
-                <li id="f_list">
-                    <a><?php echo  $box_friend["user_name"]; ?>
+                <li class="f_list_contents">
+                    <a><img id='friend_icon' style='width: 60px; height: 60px;' src="images/icon.jpg" />
+                        <?php echo  $box_friend["user_name"]; ?>
                     <span><?php echo $box_friend["user_id"]; ?></span></a>
+                    <ul class="sub">
+                        <li><a href="user.php">プロフィール</a></li>
+                        <li><a href="talk.php">トーク</a></li>
+                    </ul>
                 </li>
             <?php endwhile; ?>
         <?php endwhile; ?>
